@@ -1,0 +1,46 @@
+[project]
+name = "aiomeshtastic"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "broglep" }
+]
+readme = "README.md"
+requires-python = "<3.14,>=3.11"
+license = { text = "MIT" }
+
+[tool.poetry]
+packages = [{include = "aiomeshtastic", from = "src"}]
+
+
+[tool.poetry.dependencies]
+protobuf = "^6.31.1"
+
+[tool.poetry.group.dev.dependencies]
+reuse = "^5.0.2"
+mypy-protobuf = "^3.6.0"
+pytest = "^8.4.1"
+pytest-asyncio = "^1.0.0"
+ruff = "^0.12.3"
+
+
+[tool.poetry.group.bluetooth.dependencies]
+bleak = "^1.0.1"
+
+
+[tool.poetry.group.serial.dependencies]
+pyserial-asyncio = "^0.6"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src",
+]
+log_cli = true
+log_cli_level = "DEBUG"
+
+[tool.ruff]
+extend-exclude = ["src/aiomeshtastic/protobuf/"]
