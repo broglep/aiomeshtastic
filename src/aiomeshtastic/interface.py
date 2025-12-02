@@ -333,7 +333,7 @@ class MeshInterface:
             if channel is None:
                 return None
 
-        return MeshChannel(index=index, name=channel.settings.name)
+        return MeshChannel(index=channel.index, name=channel.settings.name)
 
     async def __aenter__(self) -> Self:
         await self.start()
